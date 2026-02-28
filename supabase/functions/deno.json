@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["deno.window", "deno.ns", "dom", "dom.iterable"]
+  },
+  "tasks": {
+    "test": "deno test --allow-env --allow-net --allow-read"
+  },
+  "fmt": {
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "singleQuote": true,
+    "semiColons": true
+  }
+}

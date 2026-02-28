@@ -1,0 +1,13 @@
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/Models/APIModels.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/Models/RecorderModels.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/UseCases/AppProtocols.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/UseCases/RecorderUseCases.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Shared/Utilities/AppConfiguration.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Shared/Utilities/JSONCoding.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Data/WatchConnectivity/PhoneWatchConnectivityBroker.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Data/WatchConnectivity/WatchWatchConnectivityBroker.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/AnalogRecordingIndicator.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchAudioRecorder.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchRecorderApp.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchRecorderViewModel.swift
+/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchRootView.swift

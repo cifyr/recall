@@ -1,0 +1,139 @@
+{
+  "" : {
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorder-primary.dia",
+    "emit-module-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorder-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorder-primary-emit-module.dia",
+    "pch" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorder-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorder-primary.swiftdeps"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Data/WatchConnectivity/PhoneWatchConnectivityBroker.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/PhoneWatchConnectivityBroker.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/PhoneWatchConnectivityBroker.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/PhoneWatchConnectivityBroker.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/PhoneWatchConnectivityBroker.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/PhoneWatchConnectivityBroker.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/PhoneWatchConnectivityBroker.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/PhoneWatchConnectivityBroker.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/PhoneWatchConnectivityBroker~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Data/WatchConnectivity/WatchWatchConnectivityBroker.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchWatchConnectivityBroker.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchWatchConnectivityBroker.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchWatchConnectivityBroker.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchWatchConnectivityBroker.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchWatchConnectivityBroker.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchWatchConnectivityBroker.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchWatchConnectivityBroker.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchWatchConnectivityBroker~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/Models/APIModels.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/APIModels.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/APIModels.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/APIModels.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/APIModels.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/APIModels.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/APIModels.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/APIModels.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/APIModels~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/Models/RecorderModels.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderModels.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderModels.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderModels.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderModels.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderModels.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderModels.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderModels.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderModels~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/UseCases/AppProtocols.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppProtocols.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppProtocols.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppProtocols.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppProtocols.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppProtocols.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppProtocols.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppProtocols.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppProtocols~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/UseCases/RecorderUseCases.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderUseCases.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderUseCases.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderUseCases.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderUseCases.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderUseCases.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderUseCases.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderUseCases.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/RecorderUseCases~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Shared/Utilities/AppConfiguration.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppConfiguration.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppConfiguration.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppConfiguration.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppConfiguration.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppConfiguration.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppConfiguration.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppConfiguration.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AppConfiguration~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Shared/Utilities/JSONCoding.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/JSONCoding.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/JSONCoding.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/JSONCoding.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/JSONCoding.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/JSONCoding.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/JSONCoding.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/JSONCoding.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/JSONCoding~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/AnalogRecordingIndicator.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AnalogRecordingIndicator.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AnalogRecordingIndicator.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AnalogRecordingIndicator.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AnalogRecordingIndicator.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AnalogRecordingIndicator.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AnalogRecordingIndicator.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AnalogRecordingIndicator.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/AnalogRecordingIndicator~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchAudioRecorder.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchAudioRecorder.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchAudioRecorder.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchAudioRecorder.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchAudioRecorder.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchAudioRecorder.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchAudioRecorder.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchAudioRecorder.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchAudioRecorder~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchRecorderApp.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderApp.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderApp.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderApp.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderApp.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderApp.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderApp.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderApp.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderApp~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchRecorderViewModel.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderViewModel.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderViewModel.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderViewModel.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderViewModel.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderViewModel.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderViewModel.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderViewModel.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRecorderViewModel~partial.swiftmodule"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchRootView.swift" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRootView.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRootView.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRootView.dia",
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRootView.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRootView.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRootView.o",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRootView.swiftdeps",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Debug-watchsimulator/WatchRecorder.build/Objects-normal/arm64/WatchRootView~partial.swiftmodule"
+  }
+}
