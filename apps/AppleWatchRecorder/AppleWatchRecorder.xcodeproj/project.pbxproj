@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0282DDF97EBFF18DE62AB65F /* RecorderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A022A63DF4349CC1F633AB3 /* RecorderModels.swift */; };
+		090DF7C17A3F17E9470A8A9D /* WatchRecorder.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = ABE07EFC7C0D5CF28B358BB9 /* WatchRecorder.app */; };
 		0A54AC227C7FEC92E685E172 /* WatchRecorderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627DFEA198D707FD7022D93F /* WatchRecorderApp.swift */; };
 		1217A45869277AC81FCFBF76 /* DebugHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0B2C14CDC0D2A2F9F52779 /* DebugHealthView.swift */; };
 		17C0D6643F1EDCE972EAB3B3 /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CBC69BB48686571A431E6 /* JSONCoding.swift */; };
@@ -21,8 +22,9 @@
 		4931FD03809FFFA14DD92A2E /* QueueRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBAEF39890052C17F7ACB10 /* QueueRecordTests.swift */; };
 		4DC23F0E472723884EC49D75 /* TelemetryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FBDA09116893487D75208C /* TelemetryClient.swift */; };
 		5401CA4F45D9CC0CAE1ECDC5 /* SessionModelDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E68FCCE937216975601BF81 /* SessionModelDecodingTests.swift */; };
-		54DFA67E8C0D67A6A8AF5F2D /* AuthCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90442F8862163C1A1258A4E /* AuthCoordinatorTests.swift */; };
 		549B2E5C30AB047B89961D15 /* WatchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C470171D0EFDEFFDC9E0B2C /* WatchRootView.swift */; };
+		54DFA67E8C0D67A6A8AF5F2D /* AuthCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90442F8862163C1A1258A4E /* AuthCoordinatorTests.swift */; };
+		58A379A61EF20D30F4C0A6BC /* SupabaseSessionRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B11A9F8F5D8511E56D6282 /* SupabaseSessionRepositoryTests.swift */; };
 		5A7A8DAE53D97E2619067038 /* EdgeFunctionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63933A0C66DDA7F603A19351 /* EdgeFunctionClient.swift */; };
 		711ADF8711A081EC5CAD8DAC /* WatchAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFE65E54997B3FDD32FD0AC /* WatchAudioRecorder.swift */; };
 		7E5C63AE227F0D4D13E9996A /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E7E782BA6EA357ED9E1BA /* JSONCoding.swift */; };
@@ -46,6 +48,8 @@
 		CC09696AC209D32837ACA871 /* SessionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BADF6B933F1D4B6A9DE7A8 /* SessionsListView.swift */; };
 		D3BE3A60B84F9659CDDB5505 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C455EDF9044A88C438336 /* AuthCoordinator.swift */; };
 		D5D404FEEC6D4FCC927F7797 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8006210371462DCDAB375E /* AppConfiguration.swift */; };
+		DC078E702F5611F5008571E5 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC078E6F2F5611F5008571E5 /* Asset.xcassets */; };
+		DC078E712F5611F5008571E5 /* Asset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC078E6F2F5611F5008571E5 /* Asset.xcassets */; };
 		E13679312A519582629CE55A /* SessionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7461E542E2057D28536393 /* SessionsListViewModel.swift */; };
 		ED8F9FEC37283E17AB0FC608 /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D6EA91146DF7DD3C6C3FAE /* SessionDetailView.swift */; };
 		F20D0D2EA546B04F7FA2D601 /* AskQuestionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844549CB401C6CDB4486BBA9 /* AskQuestionComposer.swift */; };
@@ -61,10 +65,32 @@
 			remoteGlobalIDString = 845BC845D8BB99CA81924094;
 			remoteInfo = AppleWatchRecorder;
 		};
+		4E502ED6074E416565DA809D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6958337527E9D296ECFA4563 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CABA15575A758C3CA8B3FC3;
+			remoteInfo = WatchRecorder;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B18750569F94F093173321E2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				090DF7C17A3F17E9470A8A9D /* WatchRecorder.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0414C72EFC86C4A15647C6E6 /* WatchWatchConnectivityBroker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WatchWatchConnectivityBroker.swift; path = Shared/Data/WatchConnectivity/WatchWatchConnectivityBroker.swift; sourceTree = "<group>"; };
+		08B11A9F8F5D8511E56D6282 /* SupabaseSessionRepositoryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SupabaseSessionRepositoryTests.swift; path = Tests/SupabaseSessionRepositoryTests.swift; sourceTree = "<group>"; };
 		0C7461E542E2057D28536393 /* SessionsListViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionsListViewModel.swift; path = iPhoneApp/Features/SessionsList/SessionsListViewModel.swift; sourceTree = "<group>"; };
 		10927ACEB71C883325EC025C /* WatchRecorderViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WatchRecorderViewModel.swift; path = WatchExtension/WatchRecorderViewModel.swift; sourceTree = "<group>"; };
 		1311A9A6485BB83B5A331C44 /* WatchWatchConnectivityBroker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WatchWatchConnectivityBroker.swift; path = Shared/Data/WatchConnectivity/WatchWatchConnectivityBroker.swift; sourceTree = "<group>"; };
@@ -101,9 +127,10 @@
 		C94214376DBA7B12F2F17410 /* AppProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppProtocols.swift; path = Shared/Domain/UseCases/AppProtocols.swift; sourceTree = "<group>"; };
 		CBFE65E54997B3FDD32FD0AC /* WatchAudioRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WatchAudioRecorder.swift; path = WatchExtension/WatchAudioRecorder.swift; sourceTree = "<group>"; };
 		CFB35C39E837BA694947CE02 /* RecorderUseCases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecorderUseCases.swift; path = Shared/Domain/UseCases/RecorderUseCases.swift; sourceTree = "<group>"; };
-		D90442F8862163C1A1258A4E /* AuthCoordinatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthCoordinatorTests.swift; path = Tests/AuthCoordinatorTests.swift; sourceTree = "<group>"; };
 		D1BADF6B933F1D4B6A9DE7A8 /* SessionsListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionsListView.swift; path = iPhoneApp/Features/SessionsList/SessionsListView.swift; sourceTree = "<group>"; };
 		D41DB7378F135C65CD6921F4 /* AppModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppModel.swift; path = iPhoneApp/AppModel.swift; sourceTree = "<group>"; };
+		D90442F8862163C1A1258A4E /* AuthCoordinatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthCoordinatorTests.swift; path = Tests/AuthCoordinatorTests.swift; sourceTree = "<group>"; };
+		DC078E6F2F5611F5008571E5 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Asset.xcassets; sourceTree = "<group>"; };
 		E09F6E6C0D05616A8E3CFC71 /* PhoneWatchConnectivityBroker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneWatchConnectivityBroker.swift; path = Shared/Data/WatchConnectivity/PhoneWatchConnectivityBroker.swift; sourceTree = "<group>"; };
 		E35E7E782BA6EA357ED9E1BA /* JSONCoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONCoding.swift; path = Shared/Shared/Utilities/JSONCoding.swift; sourceTree = "<group>"; };
 		EA760EB34926C29A7A52F68C /* RecorderModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecorderModels.swift; path = Shared/Domain/Models/RecorderModels.swift; sourceTree = "<group>"; };
@@ -228,6 +255,7 @@
 				D90442F8862163C1A1258A4E /* AuthCoordinatorTests.swift */,
 				ACBAEF39890052C17F7ACB10 /* QueueRecordTests.swift */,
 				6E68FCCE937216975601BF81 /* SessionModelDecodingTests.swift */,
+				08B11A9F8F5D8511E56D6282 /* SupabaseSessionRepositoryTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -238,6 +266,7 @@
 				4021A52BDF4DA8C65263ABE8 /* iPhone-Info.plist */,
 				837084C04A9C22247EC826B5 /* watchOS-Info.plist */,
 				4235149E91DC438145628A47 /* AppleWatchRecorder.entitlements */,
+				DC078E6F2F5611F5008571E5 /* Asset.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -322,10 +351,12 @@
 				7EDF8FE0E6966CA505DC3467 /* Sources */,
 				5344986B149F7B7E1AF62D9B /* Frameworks */,
 				D40B518F85C7015627153A7C /* Resources */,
+				B18750569F94F093173321E2 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7BD8C51EEB7226E654D86DC6 /* PBXTargetDependency */,
 			);
 			name = AppleWatchRecorder;
 			packageProductDependencies = (
@@ -342,8 +373,9 @@
 		6958337527E9D296ECFA4563 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2630;
 			};
 			buildConfigurationList = 6EA422158B4F362411C2B956 /* Build configuration list for PBXProject "AppleWatchRecorder" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -374,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC078E702F5611F5008571E5 /* Asset.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC078E712F5611F5008571E5 /* Asset.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +435,7 @@
 				54DFA67E8C0D67A6A8AF5F2D /* AuthCoordinatorTests.swift in Sources */,
 				4931FD03809FFFA14DD92A2E /* QueueRecordTests.swift in Sources */,
 				5401CA4F45D9CC0CAE1ECDC5 /* SessionModelDecodingTests.swift in Sources */,
+				58A379A61EF20D30F4C0A6BC /* SupabaseSessionRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +498,12 @@
 			target = 845BC845D8BB99CA81924094 /* AppleWatchRecorder */;
 			targetProxy = 1EC716A885786B47895A2F5A /* PBXContainerItemProxy */;
 		};
+		7BD8C51EEB7226E654D86DC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WatchRecorder;
+			target = 2CABA15575A758C3CA8B3FC3 /* WatchRecorder */;
+			targetProxy = 4E502ED6074E416565DA809D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -471,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = Resources/AppleWatchRecorder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -500,6 +542,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZRUFVD5GDT;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Resources/watchOS-Info.plist";
 				MARKETING_VERSION = 1.0;
@@ -550,9 +593,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -571,6 +616,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -584,6 +630,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZRUFVD5GDT;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Resources/watchOS-Info.plist";
 				MARKETING_VERSION = 1.0;
@@ -652,9 +699,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -666,6 +715,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -697,6 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = Resources/AppleWatchRecorder.entitlements;
 				CODE_SIGN_STYLE = Automatic;

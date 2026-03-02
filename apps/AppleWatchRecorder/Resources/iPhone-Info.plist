@@ -35,10 +35,12 @@
       </array>
     </dict>
   </array>
-  <key>SUPABASE_URL</key>
-  <string>https://blxswxdnrybnponwbgte.supabase.co</string>
-  <key>SUPABASE_PUBLISHABLE_KEY</key>
-  <string>sb_publishable_pbJLer_9g-dZtnL0nSoJxQ_bKR1U0qa</string>
+	<key>SUPABASE_URL</key>
+	<string>https://blxswxdnrybnponwbgte.supabase.co</string>
+	<key>SUPABASE_ANON_KEY</key>
+	<string>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJseHN3eGRucnlibnBvbndiZ3RlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyNDY2MDAsImV4cCI6MjA4NzgyMjYwMH0.t9Y22n6ou4avpDo4TeCh-G8NV9c1UuJns8xeHtVuxPM</string>
+	<key>SUPABASE_PUBLISHABLE_KEY</key>
+	<string>sb_publishable_pbJLer_9g-dZtnL0nSoJxQ_bKR1U0qa</string>
   <key>EDGE_FUNCTION_BASE_URL</key>
   <string>https://blxswxdnrybnponwbgte.supabase.co/functions/v1</string>
   <key>AUTH_REDIRECT_URL</key>

@@ -94,7 +94,7 @@ Deno.serve(async (request) => {
         tokens_in: summary.usage?.input_tokens ?? null,
         tokens_out: summary.usage?.output_tokens ?? null,
         request_id: context.requestId,
-        correlation_id: context.correlation_id ?? context.correlationId,
+        correlation_id: context.correlationId,
       }, {
         onConflict: 'session_id,summary_prompt_name,summary_prompt_version',
       });
@@ -113,7 +113,7 @@ Deno.serve(async (request) => {
         tokens_in: summary.usage?.input_tokens ?? null,
         tokens_out: summary.usage?.output_tokens ?? null,
         request_id: context.requestId,
-        correlation_id: context.correlation_id ?? context.correlationId,
+        correlation_id: context.correlationId,
       });
 
       const { data: allSummaries, error: countError } = await serviceClient

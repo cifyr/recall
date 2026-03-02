@@ -1,2 +1,0 @@
-Target dependency graph (1 target)
-Target 'WatchRecorder' in project 'AppleWatchRecorder' (no dependencies)

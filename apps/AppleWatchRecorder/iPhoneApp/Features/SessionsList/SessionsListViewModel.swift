@@ -1,3 +1,4 @@
+#if os(iOS)
 import Foundation
 import Observation
 
@@ -27,4 +28,17 @@ final class SessionsListViewModel {
       errorMessage = error.localizedDescription
     }
   }
+
+  func deleteAllSessions() async {
+    isLoading = true
+    defer { isLoading = false }
+    do {
+      try await repository.deleteAllSessions()
+      items = []
+      errorMessage = nil
+    } catch {
+      errorMessage = error.localizedDescription
+    }
+  }
 }
+#endif

@@ -54,13 +54,11 @@ enum WatchTransferMessage: String, Codable, CaseIterable, Sendable {
 
 enum WatchRecorderState: String, Codable, CaseIterable, Sendable {
   case idle
-  case recordingSegment
-  case segmentStopped
-  case awaitingUploadTicket
-  case uploadingDirect
-  case uploadSucceeded
-  case uploadFailed
-  case finalizingSession
+  case starting
+  case recording
+  case paused
+  case uploading
+  case error
 }
 
 struct AuthSession: Codable, Equatable, Sendable {
@@ -161,7 +159,7 @@ struct SessionSegmentDraft: Identifiable, Codable, Hashable, Sendable {
   let sessionID: UUID
   let segmentIndex: Int
   let fileName: String
-  let fileURL: URL
+  var fileURL: URL
   let startedAt: Date
   let endedAt: Date
   let durationMS: Int
@@ -176,6 +174,7 @@ struct WatchSessionDraft: Codable, Hashable, Sendable {
   let startedAt: Date
   var endedAt: Date?
   var segments: [SessionSegmentDraft]
+  var uploadSegment: SessionSegmentDraft?
 }
 
 struct DeviceHealthSnapshot: Codable, Hashable, Sendable {

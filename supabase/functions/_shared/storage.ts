@@ -4,7 +4,7 @@ export function buildSegmentStoragePath(
   userId: string,
   sessionId: string,
   segmentIndex: number,
-  fileExt = 'm4a',
+  fileExt = 'wav',
 ): string {
   return `u/${userId}/s/${sessionId}/segments/${segmentIndex}.${fileExt}`;
 }

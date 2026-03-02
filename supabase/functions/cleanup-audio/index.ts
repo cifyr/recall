@@ -2,6 +2,7 @@ import { assertMethod, withErrorHandling } from '../_shared/http.ts';
 import { buildRequestContext } from '../_shared/request.ts';
 import { requireInternalSecret } from '../_shared/auth.ts';
 import { createServiceClient } from '../_shared/clients.ts';
+import { AppError } from '../_shared/errors.ts';
 import { env } from '../_shared/env.ts';
 import { success } from '../_shared/response.ts';
 
@@ -22,7 +23,7 @@ Deno.serve(async (request) => {
       .limit(200);
 
     if (error) {
-      throw error;
+      throw new AppError('cleanup_query_failed', error.message, 500);
     }
 
     const paths = (expiredSegments ?? []).map((segment) => segment.storage_path);

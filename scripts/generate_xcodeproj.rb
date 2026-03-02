@@ -29,6 +29,12 @@ iphone_target = project.new_target(:application, 'AppleWatchRecorder', :ios, '17
 watch_target = project.new_target(:application, 'WatchRecorder', :watchos, '10.0')
 tests_target = project.new_target(:unit_test_bundle, 'AppleWatchRecorderTests', :ios, '17.0')
 tests_target.add_dependency(iphone_target)
+iphone_target.add_dependency(watch_target)
+
+embed_watch_phase = iphone_target.new_copy_files_build_phase('Embed Watch Content')
+embed_watch_phase.symbol_dst_subfolder_spec = :products_directory
+embed_watch_phase.dst_path = '$(CONTENTS_FOLDER_PATH)/Watch'
+embed_watch_phase.add_file_reference(watch_target.product_reference, true)
 
 def add_swift_package(project, target, repository_url, requirement, product_name)
   package = project.new(Xcodeproj::Project::Object::XCRemoteSwiftPackageReference)

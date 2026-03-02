@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 
 @main
@@ -13,3 +14,4 @@ struct AppleWatchRecorderApp: App {
     }
   }
 }
+#endif

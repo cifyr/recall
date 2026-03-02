@@ -1,5 +1,6 @@
 import SwiftUI
 
+#if os(iOS)
 struct AskQuestionComposer: View {
   @Binding var question: String
   let isSubmitting: Bool
@@ -17,3 +18,4 @@ struct AskQuestionComposer: View {
     }
   }
 }
+#endif

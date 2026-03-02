@@ -2,6 +2,7 @@ import { assertMethod, withErrorHandling } from '../_shared/http.ts';
 import { buildRequestContext } from '../_shared/request.ts';
 import { requireInternalSecret } from '../_shared/auth.ts';
 import { createServiceClient } from '../_shared/clients.ts';
+import { AppError } from '../_shared/errors.ts';
 import { success } from '../_shared/response.ts';
 
 Deno.serve(async (request) => {
@@ -23,7 +24,7 @@ Deno.serve(async (request) => {
       .select('*')
       .eq('is_enabled', true);
     if (rulesError) {
-      throw rulesError;
+      throw new AppError('budget_rules_query_failed', rulesError.message, 500);
     }
 
     const { data: calls, error: callsError } = await serviceClient
@@ -32,7 +33,7 @@ Deno.serve(async (request) => {
       .gte('created_at', windowStart.toISOString())
       .lte('created_at', windowEnd.toISOString());
     if (callsError) {
-      throw callsError;
+      throw new AppError('budget_calls_query_failed', callsError.message, 500);
     }
 
     const spentUsd = (calls ?? []).reduce((sum, call) => sum + Number(call.estimated_cost_usd ?? 0), 0);
@@ -51,7 +52,7 @@ Deno.serve(async (request) => {
       }).select('*').single();
 
       if (windowError || !windowRow) {
-        throw windowError ?? new Error('Unable to upsert cost window');
+        throw new AppError('budget_window_upsert_failed', windowError?.message ?? 'Unable to upsert cost window', 500);
       }
 
       for (const threshold of [50, 80, 100]) {

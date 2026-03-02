@@ -55,7 +55,7 @@ Deno.serve(async (request) => {
         toStatus: 'transcribing',
         reason: 'pipeline_transcribe_start',
         requestId: context.requestId,
-        correlationId: context.correlation_id ?? context.correlationId,
+        correlationId: context.correlationId,
         actorPlatform: 'edge',
       });
 
@@ -123,8 +123,8 @@ Deno.serve(async (request) => {
           throw new AppError('audio_not_found', downloadError?.message ?? 'Audio segment missing', 404);
         }
 
-        const fileName = segment.storage_path.split('/').pop() ?? `${segment.segment_index}.m4a`;
-        const file = new File([blob], fileName, { type: 'audio/m4a' });
+        const fileName = segment.storage_path.split('/').pop() ?? `${segment.segment_index}.wav`;
+        const file = new File([blob], fileName, { type: 'audio/wav' });
         const transcription = await transcribeAudio({
           file,
           fileName,
@@ -154,7 +154,7 @@ Deno.serve(async (request) => {
         model,
         audio_seconds: totalAudioSeconds,
         request_id: context.requestId,
-        correlation_id: context.correlation_id ?? context.correlationId,
+        correlation_id: context.correlationId,
       }, {
         onConflict: 'session_id',
       });
@@ -190,7 +190,7 @@ Deno.serve(async (request) => {
         model,
         audio_seconds: totalAudioSeconds,
         request_id: context.requestId,
-        correlation_id: context.correlation_id ?? context.correlationId,
+        correlation_id: context.correlationId,
       });
 
       await serviceClient
@@ -210,15 +210,20 @@ Deno.serve(async (request) => {
         toStatus: 'transcribed',
         reason: 'pipeline_transcribe_success',
         requestId: context.requestId,
-        correlationId: context.correlation_id ?? context.correlationId,
+        correlationId: context.correlationId,
         actorPlatform: 'edge',
       });
 
+      // Fire summarization calls without blocking -- each runs as an
+      // independent edge function that manages its own session status.
       for (const promptName of ['say_prompt_default', 'say_prompt_action_items']) {
-        const response = await fetch(`${env.supabaseUrl}/functions/v1/summarize-session`, {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000);
+        fetch(`${env.supabaseUrl}/functions/v1/summarize-session`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${env.supabaseAnonKey}`,
             'x-internal-job-secret': internalSecret,
             'x-request-id': crypto.randomUUID(),
             'x-correlation-id': context.correlationId ?? session.correlation_id ?? context.requestId,
@@ -228,12 +233,17 @@ Deno.serve(async (request) => {
             session_id: sessionId,
             summary_prompt_name: promptName,
           }),
-        });
-
-        if (!response.ok) {
-          const payload = await response.text();
-          throw new AppError('summary_upstream_error', payload || `Summary failed for ${promptName}`, 502);
-        }
+          signal: controller.signal,
+        })
+          .then((res) => {
+            clearTimeout(timeoutId);
+            if (!res.ok) {
+              console.error(`summarize-session (${promptName}) returned ${res.status} for session=${sessionId}`);
+            }
+          })
+          .catch(() => {
+            clearTimeout(timeoutId);
+          });
       }
 
       return {

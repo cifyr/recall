@@ -1,33 +1,37 @@
+#if os(iOS)
 import SwiftUI
 
 struct SessionDetailView: View {
+  @Environment(\.dismiss) private var dismiss
   @State var viewModel: SessionDetailViewModel
   @State private var shareText = ""
   @State private var showingShareSheet = false
 
   var body: some View {
-    ScrollView {
-      VStack(alignment: .leading, spacing: 20) {
-        if let detail = viewModel.detail {
-          header(detail)
-          transcript(detail)
-          summaries(detail)
-          notes
-          questions(detail)
-        } else if viewModel.isLoading {
-          ProgressView("Loading Detail")
+    VStack(spacing: 0) {
+      topBar
+
+      ScrollView(showsIndicators: false) {
+        VStack(alignment: .leading, spacing: 12) {
+          if let detail = viewModel.detail {
+            headerCard(detail)
+            transcriptCard(detail)
+            summaryCards(detail)
+            notesCard
+            qaCard(detail)
+          } else if viewModel.isLoading {
+            ProgressView("Loading Detail")
+              .tint(AppPalette.primary)
+              .frame(maxWidth: .infinity, minHeight: 240)
+          }
         }
-      }
-      .padding()
-    }
-    .navigationTitle("Session")
-    .toolbar {
-      if viewModel.detail?.status == .failed {
-        Button("Retry") {
-          Task { await viewModel.retryPipeline() }
-        }
+        .padding(.horizontal, 16)
+        .padding(.top, 8)
+        .padding(.bottom, 24)
       }
     }
+    .background(AppPalette.background.ignoresSafeArea())
+    .toolbar(.hidden, for: .navigationBar)
     .task {
       await viewModel.load()
     }
@@ -36,104 +40,283 @@ struct SessionDetailView: View {
     }
   }
 
-  @ViewBuilder
-  private func header(_ detail: SessionDetail) -> some View {
-    VStack(alignment: .leading, spacing: 6) {
-      Text(detail.startedAt, style: .date)
-        .font(.title3.weight(.semibold))
-      Text(detail.status.rawValue.replacingOccurrences(of: "_", with: " "))
-        .foregroundStyle(.secondary)
+  private var topBar: some View {
+    ZStack {
+      Text("Session Detail")
+        .font(.system(size: 15, weight: .regular))
+        .foregroundStyle(AppPalette.foreground)
+
+      HStack {
+        Button {
+          dismiss()
+        } label: {
+          ZStack {
+            Circle()
+              .fill(AppPalette.muted)
+              .frame(width: 36, height: 36)
+
+            Image(systemName: "arrow.left")
+              .font(.system(size: 16, weight: .medium))
+              .foregroundStyle(AppPalette.foreground)
+          }
+        }
+        .buttonStyle(.plain)
+
+        Spacer()
+
+        if viewModel.detail?.status == .failed {
+          Button {
+            Task { await viewModel.retryPipeline() }
+          } label: {
+            HStack(spacing: 6) {
+              Image(systemName: "arrow.counterclockwise")
+                .font(.system(size: 12, weight: .medium))
+              Text("Retry")
+                .font(.system(size: 13, weight: .medium))
+            }
+            .foregroundStyle(AppPalette.primary)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(AppPalette.primary.opacity(0.08))
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+          }
+          .buttonStyle(.plain)
+        } else {
+          Color.clear
+            .frame(width: 36, height: 36)
+        }
+      }
+    }
+    .padding(.horizontal, 16)
+    .padding(.top, 8)
+    .padding(.bottom, 10)
+  }
+
+  private func headerCard(_ detail: SessionDetail) -> some View {
+    VStack(alignment: .leading, spacing: 8) {
+      HStack(alignment: .top) {
+        Text(dateLabel(for: detail.startedAt))
+          .font(.system(size: 15))
+          .foregroundStyle(AppPalette.foreground)
+
+        Spacer()
+
+        let presentation = detail.status.presentation
+        Text(presentation.label)
+          .font(.system(size: 13))
+          .foregroundStyle(statusForeground(detail.status))
+      }
+
       if let latestErrorMessage = detail.latestErrorMessage {
         Text(latestErrorMessage)
-          .font(.footnote)
-          .foregroundStyle(.red)
+          .font(.system(size: 13))
+          .foregroundStyle(AppPalette.destructive)
+      }
+    }
+    .appCardStyle()
+  }
+
+  private func transcriptCard(_ detail: SessionDetail) -> some View {
+    detailCard(
+      title: "Transcript",
+      systemImage: "doc.text"
+    ) {
+      Text(detail.transcriptText ?? "Transcript pending.")
+        .font(.system(size: 13))
+        .foregroundStyle(AppPalette.mutedForeground)
+        .textSelection(.enabled)
+
+      if let transcriptText = detail.transcriptText, !transcriptText.isEmpty {
+        actionButtons(for: transcriptText)
       }
     }
   }
 
-  @ViewBuilder
-  private func transcript(_ detail: SessionDetail) -> some View {
-    SectionCard(title: "Transcript") {
-      Text(detail.transcriptText ?? "Transcript pending.")
-        .textSelection(.enabled)
-      actionButtons(for: detail.transcriptText ?? "")
-    }
-  }
-
-  @ViewBuilder
-  private func summaries(_ detail: SessionDetail) -> some View {
+  private func summaryCards(_ detail: SessionDetail) -> some View {
     ForEach(detail.summaries) { summary in
-      SectionCard(title: summary.kind?.title ?? summary.promptName) {
+      detailCard(
+        title: summary.kind?.title ?? summary.promptName,
+        systemImage: "checklist"
+      ) {
         Text(summary.summaryText)
+          .font(.system(size: 13))
+          .foregroundStyle(AppPalette.mutedForeground)
           .textSelection(.enabled)
+
         actionButtons(for: summary.summaryText)
       }
     }
   }
 
-  private var notes: some View {
-    SectionCard(title: "Notes") {
+  private var notesCard: some View {
+    detailCard(
+      title: "Notes",
+      systemImage: "note.text"
+    ) {
       TextEditor(text: $viewModel.notesDraft)
-        .frame(minHeight: 120)
+        .frame(minHeight: 92)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 6)
         .scrollContentBackground(.hidden)
-        .background(Color(.secondarySystemBackground))
-      Button(viewModel.isSavingNotes ? "Saving..." : "Save Notes") {
+        .background(AppPalette.inputBackground)
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+
+      Button {
         Task { await viewModel.saveNotes() }
+      } label: {
+        HStack(spacing: 6) {
+          Image(systemName: "square.and.arrow.down")
+            .font(.system(size: 12, weight: .medium))
+          Text(viewModel.isSavingNotes ? "Saving..." : "Save Notes")
+            .font(.system(size: 13, weight: .medium))
+        }
+        .foregroundStyle(AppPalette.primaryForeground)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 10)
+        .background(AppPalette.primary)
+        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .opacity(viewModel.isSavingNotes ? 0.8 : 1)
       }
+      .buttonStyle(.plain)
       .disabled(viewModel.isSavingNotes)
     }
   }
 
-  @ViewBuilder
-  private func questions(_ detail: SessionDetail) -> some View {
-    SectionCard(title: "Q&A") {
-      AskQuestionComposer(question: $viewModel.questionDraft, isSubmitting: viewModel.isAsking) {
-        Task { await viewModel.askQuestion() }
+  private func qaCard(_ detail: SessionDetail) -> some View {
+    detailCard(
+      title: "Ask a Question",
+      systemImage: "message"
+    ) {
+      HStack(alignment: .bottom, spacing: 8) {
+        TextEditor(text: $viewModel.questionDraft)
+          .frame(minHeight: 74)
+          .padding(.horizontal, 8)
+          .padding(.vertical, 6)
+          .scrollContentBackground(.hidden)
+          .background(AppPalette.inputBackground)
+          .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+
+        Button {
+          Task { await viewModel.askQuestion() }
+        } label: {
+          ZStack {
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+              .fill(AppPalette.primary)
+              .frame(width: 40, height: 40)
+
+            if viewModel.isAsking {
+              ProgressView()
+                .tint(AppPalette.primaryForeground)
+            } else {
+              Image(systemName: "paperplane.fill")
+                .font(.system(size: 14, weight: .medium))
+                .foregroundStyle(AppPalette.primaryForeground)
+            }
+          }
+        }
+        .buttonStyle(.plain)
+        .disabled(viewModel.isAsking || viewModel.questionDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+        .opacity(viewModel.isAsking || viewModel.questionDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.4 : 1)
       }
 
-      ForEach(detail.questions) { question in
-        VStack(alignment: .leading, spacing: 8) {
-          Text(question.question)
-            .font(.headline)
-          Text(question.answer ?? "Pending answer")
-            .foregroundStyle(.secondary)
-          actionButtons(for: question.answer ?? "")
+      if !detail.questions.isEmpty {
+        VStack(alignment: .leading, spacing: 0) {
+          ForEach(detail.questions) { question in
+            VStack(alignment: .leading, spacing: 8) {
+              Divider()
+                .padding(.bottom, 12)
+
+              Text("Q: \(question.question)")
+                .font(.system(size: 13))
+                .foregroundStyle(AppPalette.foreground)
+
+              Text(question.answer ?? "Pending answer")
+                .font(.system(size: 13))
+                .foregroundStyle(AppPalette.mutedForeground)
+
+              actionButtons(for: question.answer ?? "")
+            }
+          }
         }
-        .padding(.vertical, 8)
-        Divider()
       }
     }
   }
 
-  @ViewBuilder
+  private func detailCard<Content: View>(
+    title: String,
+    systemImage: String,
+    @ViewBuilder content: () -> Content
+  ) -> some View {
+    VStack(alignment: .leading, spacing: 12) {
+      HStack(spacing: 8) {
+        Image(systemName: systemImage)
+          .font(.system(size: 14))
+          .foregroundStyle(AppPalette.mutedForeground)
+        Text(title)
+          .font(.system(size: 14, weight: .medium))
+          .foregroundStyle(AppPalette.foreground)
+      }
+
+      content()
+    }
+    .appCardStyle()
+  }
+
   private func actionButtons(for text: String) -> some View {
-    HStack {
-      Button("Copy") {
+    HStack(spacing: 8) {
+      Button {
         #if canImport(UIKit)
         UIPasteboard.general.string = text
         #endif
+      } label: {
+        actionChip(systemImage: "doc.on.doc", title: "Copy")
       }
-      Button("Share") {
+      .buttonStyle(.plain)
+
+      Button {
         shareText = text
         showingShareSheet = true
+      } label: {
+        actionChip(systemImage: "square.and.arrow.up", title: "Share")
       }
+      .buttonStyle(.plain)
     }
-    .font(.caption.weight(.semibold))
   }
-}
 
-private struct SectionCard<Content: View>: View {
-  let title: String
-  @ViewBuilder let content: Content
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 12) {
+  private func actionChip(systemImage: String, title: String) -> some View {
+    HStack(spacing: 6) {
+      Image(systemName: systemImage)
+        .font(.system(size: 12))
       Text(title)
-        .font(.headline)
-      content
+        .font(.system(size: 12, weight: .medium))
     }
-    .padding()
-    .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    .foregroundStyle(AppPalette.mutedForeground)
+    .padding(.horizontal, 12)
+    .padding(.vertical, 8)
+    .background(AppPalette.muted)
+    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+  }
+
+  private func statusForeground(_ status: SessionStatus) -> Color {
+    status.presentation.foreground
+  }
+
+  private func dateLabel(for date: Date) -> String {
+    let calendar = Calendar.current
+    let timeFormatter = DateFormatter()
+    timeFormatter.dateFormat = "h:mm a"
+
+    if calendar.isDateInToday(date) {
+      return "Today, \(timeFormatter.string(from: date))"
+    }
+
+    if calendar.isDateInYesterday(date) {
+      return "Yesterday, \(timeFormatter.string(from: date))"
+    }
+
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MMM d, h:mm a"
+    return formatter.string(from: date)
   }
 }
 
@@ -152,4 +335,5 @@ private struct ShareSheet: View {
   let text: String
   var body: some View { Text(text) }
 }
+#endif
 #endif

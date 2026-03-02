@@ -1,3 +1,4 @@
+#if os(iOS)
 import Foundation
 import Observation
 
@@ -72,3 +73,4 @@ final class SessionDetailViewModel {
     }
   }
 }
+#endif

@@ -1,0 +1,40 @@
+{
+  "source": "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/WatchExtension/WatchRootView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Uploading…",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "Paused",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sign in on iPhone",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open the iPhone app and sign in to upload recordings.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 58
+        }
+      }
+    ]
+  },
+  "version": 1
+}

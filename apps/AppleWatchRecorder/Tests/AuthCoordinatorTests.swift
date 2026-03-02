@@ -55,6 +55,10 @@ private actor AuthProviderSpy: AuthProviding {
     session
   }
 
+  func refreshSession() async -> AuthSession? {
+    session
+  }
+
   func restoreSession() async {}
 
   func sendEmailCode(to email: String) async throws {

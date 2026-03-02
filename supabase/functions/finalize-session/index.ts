@@ -132,24 +132,6 @@ Deno.serve(async (request) => {
       },
     );
 
-    const triggerResponse = await fetch(`${env.supabaseUrl}/functions/v1/transcribe-session`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-internal-job-secret': internalSecret,
-        'x-request-id': context.requestId,
-        'x-correlation-id': context.correlationId ?? session.correlation_id ?? context.requestId,
-        'x-platform': 'edge',
-      },
-      body: JSON.stringify({
-        session_id: sessionId,
-      }),
-    });
-
-    if (!triggerResponse.ok) {
-      throw new AppError('transcription_enqueue_failed', 'Failed to enqueue transcription', 502);
-    }
-
     const payload = {
       session_id: sessionId,
       status: 'uploaded',
@@ -165,6 +147,36 @@ Deno.serve(async (request) => {
       requestHash,
       response: payload,
     });
+
+    // Fire transcription asynchronously -- don't block the response.
+    // transcribe-session runs as an independent edge function invocation
+    // and manages its own session status updates and failure tracking.
+    const transcribeUrl = `${env.supabaseUrl}/functions/v1/transcribe-session`;
+    const transcribeInit: RequestInit = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${env.supabaseAnonKey}`,
+        'x-internal-job-secret': internalSecret,
+        'x-request-id': context.requestId,
+        'x-correlation-id': context.correlationId ?? session.correlation_id ?? context.requestId,
+        'x-platform': 'edge',
+      },
+      body: JSON.stringify({ session_id: sessionId }),
+    };
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
+    fetch(transcribeUrl, { ...transcribeInit, signal: controller.signal })
+      .then((res) => {
+        clearTimeout(timeoutId);
+        if (!res.ok) {
+          console.error(`transcribe-session returned ${res.status} for session=${sessionId}`);
+        }
+      })
+      .catch(() => {
+        clearTimeout(timeoutId);
+      });
 
     return {
       response: success(payload, context.requestId),

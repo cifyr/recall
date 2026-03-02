@@ -1,0 +1,126 @@
+{
+  "" : {
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorder-primary.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorder-primary.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorder-primary.dia",
+    "emit-module-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorder-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorder-primary-emit-module.dia",
+    "pch" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorder-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorder-primary.swiftdeps"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Data/LocalStore/QueueStore.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/QueueStore.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/QueueStore.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/QueueStore.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Data/Supabase/SupabaseServices.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SupabaseServices.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SupabaseServices.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SupabaseServices.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Data/WatchConnectivity/PhoneWatchConnectivityBroker.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/PhoneWatchConnectivityBroker.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/PhoneWatchConnectivityBroker.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/PhoneWatchConnectivityBroker.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Data/WatchConnectivity/WatchWatchConnectivityBroker.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/WatchWatchConnectivityBroker.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/WatchWatchConnectivityBroker.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/WatchWatchConnectivityBroker.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/Models/APIModels.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/APIModels.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/APIModels.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/APIModels.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/Models/RecorderModels.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/RecorderModels.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/RecorderModels.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/RecorderModels.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/UseCases/AppProtocols.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppProtocols.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppProtocols.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppProtocols.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/UseCases/RecorderUseCases.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/RecorderUseCases.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/RecorderUseCases.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/RecorderUseCases.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Shared/Networking/EdgeFunctionClient.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/EdgeFunctionClient.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/EdgeFunctionClient.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/EdgeFunctionClient.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Shared/Telemetry/TelemetryClient.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/TelemetryClient.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/TelemetryClient.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/TelemetryClient.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Shared/Utilities/AppConfiguration.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppConfiguration.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppConfiguration.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppConfiguration.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Shared/Utilities/JSONCoding.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/JSONCoding.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/JSONCoding.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/JSONCoding.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/AppModel.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppModel.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppModel.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppModel.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/AppRootView.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppRootView.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppRootView.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppRootView.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/AppleWatchRecorderApp.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorderApp.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorderApp.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AppleWatchRecorderApp.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/Features/AskQuestion/AskQuestionComposer.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AskQuestionComposer.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AskQuestionComposer.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AskQuestionComposer.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/Features/Auth/AuthCoordinator.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AuthCoordinator.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AuthCoordinator.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AuthCoordinator.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/Features/Auth/AuthView.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AuthView.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AuthView.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/AuthView.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/Features/DebugHealth/DebugHealthView.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/DebugHealthView.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/DebugHealthView.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/DebugHealthView.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/Features/SessionDetail/SessionDetailView.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionDetailView.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionDetailView.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionDetailView.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/Features/SessionDetail/SessionDetailViewModel.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionDetailViewModel.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionDetailViewModel.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionDetailViewModel.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/Features/SessionsList/SessionsListView.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionsListView.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionsListView.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionsListView.o"
+  },
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/iPhoneApp/Features/SessionsList/SessionsListViewModel.swift" : {
+    "index-unit-output-path" : "/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionsListViewModel.o",
+    "llvm-bc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionsListViewModel.bc",
+    "object" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/AppleWatchRecorder.build/Objects-normal/x86_64/SessionsListViewModel.o"
+  }
+}

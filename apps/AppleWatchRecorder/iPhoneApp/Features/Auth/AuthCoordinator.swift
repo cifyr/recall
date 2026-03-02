@@ -1,3 +1,4 @@
+#if os(iOS)
 import Foundation
 import Observation
 
@@ -109,3 +110,4 @@ final class AuthCoordinator {
     value.contains("@") && value.contains(".")
   }
 }
+#endif

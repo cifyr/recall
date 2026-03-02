@@ -9,8 +9,8 @@ struct AppConfiguration: Sendable {
   static func current(bundle: Bundle = .main) -> AppConfiguration {
     let info = bundle.infoDictionary ?? [:]
     let urlString = info["SUPABASE_URL"] as? String
-    let key = (info["SUPABASE_PUBLISHABLE_KEY"] as? String)
-      ?? (info["SUPABASE_ANON_KEY"] as? String)
+    let key = (info["SUPABASE_ANON_KEY"] as? String)
+      ?? (info["SUPABASE_PUBLISHABLE_KEY"] as? String)
       ?? ""
     let edgeString = info["EDGE_FUNCTION_BASE_URL"] as? String
     let redirectString = info["AUTH_REDIRECT_URL"] as? String

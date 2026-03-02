@@ -1,0 +1,12 @@
+{
+  "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/Shared/Domain/Models/APIModels.swift" : {
+    "abi-baseline-json" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/WatchRecorder.build/Objects-normal/x86_64/WatchRecorder.abi.json",
+    "const-values" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/WatchRecorder.build/Objects-normal/x86_64/WatchRecorder-primary.swiftconstvalues",
+    "dependencies" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/WatchRecorder.build/Objects-normal/x86_64/WatchRecorder-primary.d",
+    "diagnostics" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/WatchRecorder.build/Objects-normal/x86_64/WatchRecorder-primary.dia",
+    "objc-header" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/WatchRecorder.build/Objects-normal/x86_64/WatchRecorder-Swift.h",
+    "swiftdoc" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/WatchRecorder.build/Objects-normal/x86_64/WatchRecorder.swiftdoc",
+    "swiftmodule" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/WatchRecorder.build/Objects-normal/x86_64/WatchRecorder.swiftmodule",
+    "swiftsourceinfo" : "/Users/caden/Desktop/watch/apps/AppleWatchRecorder/build/AppleWatchRecorder.build/Release-iphonesimulator/WatchRecorder.build/Objects-normal/x86_64/WatchRecorder.swiftsourceinfo"
+  }
+}

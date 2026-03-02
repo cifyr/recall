@@ -35,8 +35,8 @@ Deno.serve(async (request) => {
 
     const sessionId = requireUuid(body.session_id, 'session_id');
     const segmentIndex = requireNonNegativeInt(body.segment_index, 'segment_index');
-    const fileExt = typeof body.file_ext === 'string' ? body.file_ext.replace(/^\./, '') : 'm4a';
-    requireString(body.content_type ?? 'audio/m4a', 'content_type', 100);
+    const fileExt = typeof body.file_ext === 'string' ? body.file_ext.replace(/^\./, '') : 'wav';
+    requireString(body.content_type ?? 'audio/wav', 'content_type', 100);
 
     const userLimit = await checkRateLimit('user', authUser.id, 'create_upload_ticket', context.requestId);
     if (!userLimit.allowed) {
@@ -101,7 +101,9 @@ Deno.serve(async (request) => {
 
     const { data: uploadData, error: uploadError } = await serviceClient.storage
       .from('conversation-audio')
-      .createSignedUploadUrl(storagePath);
+      .createSignedUploadUrl(storagePath, {
+        upsert: true,
+      });
 
     if (uploadError || !uploadData?.signedUrl) {
       throw new AppError('ticket_issue_failed', uploadError?.message ?? 'Unable to create signed upload URL', 500);

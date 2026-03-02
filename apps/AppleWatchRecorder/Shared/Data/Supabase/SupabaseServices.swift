@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 
 #if canImport(Supabase)
 import Supabase
@@ -164,39 +165,86 @@ private struct PostgrestDeviceUpsert: Encodable {
 
 actor SupabaseAuthClient: AuthProviding {
   private let configuration: AppConfiguration
+  private let authStorageKey: String
+  private let logger = Logger(subsystem: "com.caden.watchrecorder", category: "supabase-auth")
   private(set) var session: AuthSession?
 
   #if canImport(Supabase)
   private lazy var client: SupabaseClient? = {
     guard let url = configuration.supabaseURL, !configuration.supabaseKey.isEmpty else { return nil }
-    return SupabaseClient(supabaseURL: url, supabaseKey: configuration.supabaseKey)
+    let options = SupabaseClientOptions(
+      auth: .init(
+        redirectToURL: configuration.redirectURL,
+        storageKey: authStorageKey,
+        autoRefreshToken: true,
+        emitLocalSessionAsInitialSession: true
+      )
+    )
+    return SupabaseClient(supabaseURL: url, supabaseKey: configuration.supabaseKey, options: options)
   }()
   #endif
 
   init(configuration: AppConfiguration) {
     self.configuration = configuration
+    let host = configuration.supabaseURL?.host() ?? "unconfigured"
+    let bundleIdentifier = Bundle.main.bundleIdentifier ?? "com.caden.watchrecorder"
+    authStorageKey = "\(bundleIdentifier).supabase.auth.\(host)"
   }
 
   nonisolated var isConfigured: Bool { configuration.isConfigured }
 
   func currentSession() async -> AuthSession? {
-    session
+    guard isConfigured else { return session }
+    #if canImport(Supabase)
+    guard let client else {
+      logger.error("[auth] currentSession: client is nil")
+      return session
+    }
+    do {
+      let activeSession = try await validSession(using: client)
+      let mapped = mapSession(activeSession)
+      await client.auth.startAutoRefresh()
+      session = mapped
+      logger.info("[auth] currentSession: token valid, user=\(mapped.userID.uuidString.prefix(8), privacy: .public)")
+      return mapped
+    } catch {
+      logger.error("[auth] currentSession failed: \(error.localizedDescription, privacy: .public)")
+      session = nil
+      return nil
+    }
+    #else
+    return session
+    #endif
+  }
+
+  func refreshSession() async -> AuthSession? {
+    guard isConfigured else { return session }
+    #if canImport(Supabase)
+    guard let client else {
+      logger.error("[auth] refreshSession: client is nil")
+      return session
+    }
+    do {
+      let refreshedSession = try await client.auth.refreshSession()
+      let mapped = mapSession(refreshedSession)
+      await client.auth.startAutoRefresh()
+      session = mapped
+      logger.info("[auth] refreshSession succeeded, user=\(mapped.userID.uuidString.prefix(8), privacy: .public)")
+      return mapped
+    } catch {
+      logger.error("[auth] refreshSession failed: \(error.localizedDescription, privacy: .public)")
+      session = nil
+      return nil
+    }
+    #else
+    return session
+    #endif
   }
 
   func restoreSession() async {
     guard isConfigured else { return }
     #if canImport(Supabase)
-    guard let client else { return }
-    do {
-      let activeSession = try await client.auth.session
-      session = AuthSession(
-        userID: UUID(uuidString: String(describing: activeSession.user.id)) ?? UUID(),
-        email: activeSession.user.email,
-        accessToken: activeSession.accessToken
-      )
-    } catch {
-      session = nil
-    }
+    _ = await currentSession()
     #endif
   }
 
@@ -223,16 +271,13 @@ actor SupabaseAuthClient: AuthProviding {
     if let responseSession = response.session {
       authSession = responseSession
     } else {
-      authSession = try? await client.auth.session
+      authSession = try? await validSession(using: client)
     }
     guard let authSession else {
       throw NetworkError.invalidResponse
     }
-    session = AuthSession(
-      userID: UUID(uuidString: String(describing: authSession.user.id)) ?? UUID(),
-      email: authSession.user.email,
-      accessToken: authSession.accessToken
-    )
+    await client.auth.startAutoRefresh()
+    session = mapSession(authSession)
     #else
     throw NetworkError.notConfigured
     #endif
@@ -240,10 +285,29 @@ actor SupabaseAuthClient: AuthProviding {
 
   func signOut() async throws {
     #if canImport(Supabase)
+    await client?.auth.stopAutoRefresh()
     try await client?.auth.signOut()
     #endif
     session = nil
   }
+
+  #if canImport(Supabase)
+  private func validSession(using client: SupabaseClient) async throws -> Session {
+    let activeSession = try await client.auth.session
+    if activeSession.isExpired {
+      return try await client.auth.refreshSession(refreshToken: activeSession.refreshToken)
+    }
+    return activeSession
+  }
+
+  private func mapSession(_ session: Session) -> AuthSession {
+    AuthSession(
+      userID: UUID(uuidString: String(describing: session.user.id)) ?? UUID(),
+      email: session.user.email,
+      accessToken: session.accessToken
+    )
+  }
+  #endif
 }
 
 actor PreviewSessionRepository: SessionRepository {
@@ -307,6 +371,7 @@ actor PreviewSessionRepository: SessionRepository {
   func registerDevice(platform: String, deviceID: String) async throws {}
   func loadSessions() async throws -> [SessionFeedItem] { sessions }
   func loadSessionDetail(sessionID: UUID) async throws -> SessionDetail { details[sessionID] ?? details.values.first! }
+  func deleteAllSessions() async throws {}
   func upsertSession(_ draft: WatchSessionDraft) async throws {}
   func upsertSegment(_ segment: SessionSegmentDraft, userID: UUID) async throws {}
   func createUploadTicket(sessionID: UUID, segmentIndex: Int) async throws -> UploadTicket {
@@ -406,6 +471,19 @@ actor SupabaseSessionRepository: SessionRepository {
     return items.map { $0.model() }
   }
 
+  func deleteAllSessions() async throws {
+    guard
+      let session = await authProvider.currentSession(),
+      let baseURL = configuration.supabaseURL
+    else { throw NetworkError.unauthorized }
+    try await postgrestDelete(
+      baseURL: baseURL,
+      table: "conversation_sessions",
+      query: "user_id=eq.\(session.userID.uuidString)",
+      accessToken: session.accessToken
+    )
+  }
+
   func loadSessionDetail(sessionID: UUID) async throws -> SessionDetail {
     guard
       let session = await authProvider.currentSession(),
@@ -475,7 +553,7 @@ actor SupabaseSessionRepository: SessionRepository {
   func createUploadTicket(sessionID: UUID, segmentIndex: Int) async throws -> UploadTicket {
     let response: CreateUploadTicketResponse = try await edgeClient.invoke(
       function: "create-upload-ticket",
-      body: CreateUploadTicketRequest(sessionID: sessionID, segmentIndex: segmentIndex, contentType: "audio/m4a"),
+      body: CreateUploadTicketRequest(sessionID: sessionID, segmentIndex: segmentIndex, contentType: "audio/wav"),
       requestIdentity: .make(),
       deviceID: Self.deviceID
     )
@@ -563,7 +641,10 @@ actor SupabaseSessionRepository: SessionRepository {
   }
 
   private func postgrestRead<Output: Decodable>(baseURL: URL, path: String, accessToken: String) async throws -> Output {
-    var request = URLRequest(url: baseURL.appending(path: path))
+    guard let url = URL(string: path, relativeTo: baseURL) else {
+      throw NetworkError.invalidResponse
+    }
+    var request = URLRequest(url: url)
     request.httpMethod = "GET"
     request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
     request.setValue(configuration.supabaseKey, forHTTPHeaderField: "apikey")
@@ -629,6 +710,25 @@ actor SupabaseSessionRepository: SessionRepository {
     }
     guard (200 ..< 300).contains(httpResponse.statusCode) else {
       throw NetworkError.server(code: httpResponse.statusCode, message: String(data: data, encoding: .utf8) ?? "Patch failed")
+    }
+  }
+
+  private func postgrestDelete(baseURL: URL, table: String, query: String, accessToken: String) async throws {
+    let url = baseURL.appending(path: "/rest/v1/\(table)").appending(queryItems: query.split(separator: "&").map {
+      let parts = $0.split(separator: "=", maxSplits: 1)
+      return URLQueryItem(name: String(parts[0]), value: parts.count > 1 ? String(parts[1]) : "")
+    })
+    var request = URLRequest(url: url)
+    request.httpMethod = "DELETE"
+    request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+    request.setValue(configuration.supabaseKey, forHTTPHeaderField: "apikey")
+    request.setValue("return=minimal", forHTTPHeaderField: "Prefer")
+    let (data, response) = try await urlSession.data(for: request)
+    guard let httpResponse = response as? HTTPURLResponse else {
+      throw NetworkError.invalidResponse
+    }
+    guard (200 ..< 300).contains(httpResponse.statusCode) else {
+      throw NetworkError.server(code: httpResponse.statusCode, message: String(data: data, encoding: .utf8) ?? "Delete failed")
     }
   }
 

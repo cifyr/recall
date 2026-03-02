@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch Recorder Home</title>
+  <style>
+    :root {
+      --ink: #151515;
+      --paper: #f4efe7;
+      --panel: rgba(255, 255, 255, 0.82);
+      --sand: #dcc7a0;
+      --moss: #264d43;
+      --sun: #e66d3b;
+      --mist: rgba(21, 21, 21, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "SF Pro Display", "Avenir Next", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(230, 109, 59, 0.16), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(38, 77, 67, 0.18), transparent 26%),
+        linear-gradient(180deg, #f8f3ea 0%, #ede5d7 100%);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      padding: 32px;
+    }
+
+    .phone {
+      width: 402px;
+      min-height: 874px;
+      border-radius: 48px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35)),
+        linear-gradient(180deg, #f7f1e8 0%, #efe5d6 100%);
+      border: 1px solid rgba(21, 21, 21, 0.08);
+      box-shadow:
+        0 24px 70px rgba(41, 33, 20, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(130deg, rgba(230, 109, 59, 0.08), transparent 30%),
+        linear-gradient(330deg, rgba(38, 77, 67, 0.09), transparent 34%);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      padding: 28px 24px 30px;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(21, 21, 21, 0.62);
+      margin-bottom: 28px;
+    }
+
+    .hero {
+      padding: 28px;
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.34), transparent 32%),
+        linear-gradient(150deg, #193730 0%, #2f6457 54%, #557e72 100%);
+      color: white;
+      box-shadow: 0 18px 40px rgba(23, 55, 47, 0.22);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 42px;
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 280px;
+      font-size: 17px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .cta-row {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 14px;
+      margin: 18px 0 26px;
+    }
+
+    .panel {
+      border-radius: 26px;
+      background: var(--panel);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      box-shadow: 0 10px 25px rgba(41, 33, 20, 0.08);
+    }
+
+    .primary-card {
+      padding: 20px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.74)),
+        linear-gradient(135deg, rgba(230, 109, 59, 0.16), rgba(220, 199, 160, 0.18));
+    }
+
+    .primary-card .label,
+    .metric .label,
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(21, 21, 21, 0.56);
+    }
+
+    .primary-card h2 {
+      margin: 18px 0 10px;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .primary-card p {
+      margin: 0 0 18px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: rgba(21, 21, 21, 0.74);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: var(--moss);
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+
+    .metric-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px;
+      min-height: 114px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .metric strong {
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .metric span {
+      color: rgba(21, 21, 21, 0.66);
+      font-size: 14px;
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .section-header strong {
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .session-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .session-card {
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(21, 21, 21, 0.06);
+      box-shadow: 0 8px 20px rgba(41, 33, 20, 0.06);
+    }
+
+    .session-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: rgba(21, 21, 21, 0.54);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .session-card h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      letter-spacing: -0.04em;
+    }
+
+    .session-card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.48;
+      color: rgba(21, 21, 21, 0.7);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(230, 109, 59, 0.14);
+      color: #9c431d;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-panel {
+      margin-top: 18px;
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-panel strong {
+      display: block;
+      font-size: 18px;
+      margin-top: 6px;
+      letter-spacing: -0.04em;
+    }
+   </style>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <main class="phone">
+    <div class="content">
+      <div class="status-row">
+        <span>Ready on iPhone</span>
+        <span>Recorder v1</span>
+      </div>
+
+      <section class="hero">
+        <div class="eyebrow">Companion Capture</div>
+        <h1>Watch first.<br />Phone steady.</h1>
+        <p>Turn short recordings into searchable transcripts, action items, and grounded follow-up answers.</p>
+      </section>
+
+      <section class="cta-row">
+        <article class="panel primary-card">
+          <div class="label">Today</div>
+          <h2>Ready to capture</h2>
+          <p>Your watch is the recorder. The iPhone handles sync, summaries, and session detail.</p>
+          <div class="button">Start from Watch</div>
+        </article>
+
+        <div class="metric-stack">
+          <article class="panel metric">
+            <div class="label">Daily audio</div>
+            <strong>41m</strong>
+            <span>of 60 minutes</span>
+          </article>
+          <article class="panel metric">
+            <div class="label">Queue</div>
+            <strong>02</strong>
+            <span>pending sync items</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <strong>Recent Sessions</strong>
+          <span class="section-label">Auto summarized</span>
+        </div>
+        <div class="session-list">
+          <article class="session-card">
+            <div class="session-meta">
+              <span>12 minutes</span>
+              <span class="badge">Summarized</span>
+            </div>
+            <h3>Founder sync after lunch</h3>
+            <p>Three decisions locked, one design follow-up, and a budget call flagged for next Monday.</p>
+          </article>
+
+          <article class="session-card">
+            <div class="session-meta">
+              <span>8 minutes</span>
+              <span class="badge">Uploading</span>
+            </div>
+            <h3>Studio notes on the walk</h3>
+            <p>Pending direct upload from the watch. Notes will hydrate here once the transcript lands.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel footer-panel">
+        <div>
+          <div class="section-label">Operational health</div>
+          <strong>Weekly AI spend at 38%</strong>
+        </div>
+        <div class="button" style="background: var(--sun);">Open Debug</div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

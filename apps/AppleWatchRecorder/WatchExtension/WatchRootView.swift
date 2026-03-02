@@ -2,76 +2,97 @@ import SwiftUI
 
 struct WatchRootView: View {
   @State var viewModel: WatchRecorderViewModel
-  @State private var now = Date()
 
   var body: some View {
-    VStack(spacing: 12) {
-      AnalogRecordingIndicator(isRecording: viewModel.state == .recordingSegment, date: now)
-        .frame(width: 112, height: 112)
+    TimelineView(.periodic(from: .now, by: 1)) { _ in
+      ZStack {
+        Color.black.ignoresSafeArea()
 
-      Text(statusText)
-        .font(.footnote.weight(.semibold))
-        .multilineTextAlignment(.center)
+        if viewModel.phoneSignedIn {
+          AnalogRecordingIndicator(
+            date: Date(),
+            handVisibility: handVisibility
+          )
+          .ignoresSafeArea()
 
-      Button {
-        Task { await viewModel.handlePrimaryTap() }
-      } label: {
-        Image(systemName: primaryButtonSymbol)
-          .font(.title2)
-          .frame(maxWidth: .infinity)
-          .padding(.vertical, 10)
+          if viewModel.state == .uploading {
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+              .stroke(Color.red, lineWidth: 3)
+              .ignoresSafeArea()
+          }
+
+          if viewModel.debugMode {
+            debugOverlay
+          }
+        } else {
+          VStack(spacing: 8) {
+            Text("Sign in on iPhone")
+              .font(.headline)
+              .foregroundStyle(.white)
+            Text("Open the iPhone app and sign in to upload recordings.")
+              .font(.caption)
+              .multilineTextAlignment(.center)
+              .foregroundStyle(.white.opacity(0.9))
+              .padding(.horizontal, 16)
+          }
+        }
       }
-      .buttonStyle(.borderedProminent)
-      .tint(viewModel.state == .recordingSegment ? .red : .green)
-
-      Button("Finalize Session") {
-        Task { await viewModel.finalizeSession() }
+      .contentShape(Rectangle())
+      .onTapGesture {
+        guard viewModel.phoneSignedIn else { return }
+        Task { await viewModel.handleTap() }
       }
-      .buttonStyle(.bordered)
-      .disabled(viewModel.state == .recordingSegment || !viewModel.canFinalizeSession)
-
-      if let lastError = viewModel.lastError {
-        Text(lastError)
-          .font(.caption2)
-          .foregroundStyle(.red)
+      .onLongPressGesture(minimumDuration: 0.7) {
+        guard viewModel.phoneSignedIn else { return }
+        Task { await viewModel.handleLongPress() }
       }
     }
-    .padding()
     .task {
       await viewModel.bootstrap()
     }
-    .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { value in
-      now = value
+  }
+
+  @ViewBuilder
+  private var debugOverlay: some View {
+    if viewModel.state == .uploading {
+      VStack {
+        Spacer()
+        Text("Uploading…")
+          .font(.caption)
+          .foregroundStyle(.white.opacity(0.9))
+          .padding(.bottom, 12)
+      }
+    }
+
+    if viewModel.state == .paused {
+      VStack {
+        Spacer()
+        Text("Paused")
+          .font(.caption)
+          .foregroundStyle(.white.opacity(0.7))
+          .padding(.bottom, 12)
+      }
+    }
+
+    if viewModel.state == .error, let message = viewModel.lastError {
+      VStack {
+        Spacer()
+        Text(message)
+          .font(.caption2)
+          .multilineTextAlignment(.center)
+          .foregroundStyle(.white)
+          .padding(.horizontal, 8)
+          .padding(.bottom, 12)
+      }
     }
   }
 
-  private var statusText: String {
+  private var handVisibility: ClockHandVisibility {
     switch viewModel.state {
-    case .idle:
-      return "Ready"
-    case .recordingSegment:
-      return "Recording"
-    case .segmentStopped, .awaitingUploadTicket:
-      return "Pending Upload"
-    case .uploadingDirect:
-      return "Uploading"
-    case .uploadFailed:
-      return "Upload Failed"
-    case .uploadSucceeded:
-      return "Uploaded"
-    case .finalizingSession:
-      return "Finalizing"
-    }
-  }
-
-  private var primaryButtonSymbol: String {
-    switch viewModel.state {
-    case .recordingSegment:
-      return "stop.fill"
-    case .uploadFailed:
-      return "arrow.clockwise"
-    default:
-      return "mic.fill"
+    case .recording, .starting:
+      return .hourMinute
+    case .idle, .paused, .uploading, .error:
+      return .all
     }
   }
 }
