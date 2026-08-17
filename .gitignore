@@ -2,12 +2,21 @@
 .swiftpm/
 .spm-*/
 .swiftpm-*/
+.pkgtest-*/
 
 # Xcode
 build/
 DerivedData/
 *.xcuserstate
+xcuserdata/
 *.xcworkspace/xcuserdata/
+
+# Supabase CLI local state (contains project refs and pooler URLs)
+supabase/.temp/
+
+# Secrets
+.env
+.env.*
 
 # macOS
 .DS_Store
